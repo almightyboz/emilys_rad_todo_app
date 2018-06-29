@@ -10,7 +10,7 @@ import Foundation
 
 class ItemModel {
     var id: String!
-    var title: String!
+    var title: String?
 //    var completed: Bool!
     
     init(title: String) {
