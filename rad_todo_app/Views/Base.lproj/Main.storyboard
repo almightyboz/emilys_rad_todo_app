@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,15 +23,20 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="99" id="hQU-l2-zmW">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="99" id="hQU-l2-zmW">
                                         <rect key="frame" x="0.0" y="28" width="375" height="99"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hQU-l2-zmW" id="klw-3h-tmM">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="98.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOa-vc-FH9">
-                                                    <rect key="frame" x="84" y="11" width="276" height="77"/>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rdK-JG-8CC">
+                                                    <rect key="frame" x="32" y="34" width="49" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOa-vc-FH9">
+                                                    <rect key="frame" x="127" y="11" width="206" height="77"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Todo Item">
                                                             <attributes>
@@ -43,21 +47,7 @@
                                                     </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rdK-JG-8CC">
-                                                    <rect key="frame" x="15" y="34" width="51" height="31"/>
-                                                    <connections>
-                                                        <action selector="completionToggle:" destination="BYZ-38-t0r" eventType="valueChanged" id="0dU-qr-1DC"/>
-                                                    </connections>
-                                                </switch>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="rdK-JG-8CC" firstAttribute="leading" secondItem="klw-3h-tmM" secondAttribute="leadingMargin" id="8gU-Vo-HdF"/>
-                                                <constraint firstItem="TOa-vc-FH9" firstAttribute="leading" secondItem="rdK-JG-8CC" secondAttribute="trailing" constant="20" id="UAP-86-83j"/>
-                                                <constraint firstItem="rdK-JG-8CC" firstAttribute="centerY" secondItem="klw-3h-tmM" secondAttribute="centerY" id="fh1-fv-tda"/>
-                                                <constraint firstItem="TOa-vc-FH9" firstAttribute="trailing" secondItem="klw-3h-tmM" secondAttribute="trailingMargin" id="iUa-oF-oom"/>
-                                                <constraint firstItem="TOa-vc-FH9" firstAttribute="bottom" secondItem="klw-3h-tmM" secondAttribute="bottomMargin" id="sHB-yx-en4"/>
-                                                <constraint firstItem="TOa-vc-FH9" firstAttribute="top" secondItem="klw-3h-tmM" secondAttribute="topMargin" id="vmy-MG-I9x"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -66,9 +56,6 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <connections>
-                        <outlet property="itemsIndexView" destination="hSs-XM-gXq" id="0Av-7P-0hs"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

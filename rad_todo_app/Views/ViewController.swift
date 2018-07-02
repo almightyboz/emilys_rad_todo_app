@@ -8,20 +8,17 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource {
     
-    @IBOutlet weak var itemsIndexView: UITableView!
-    @IBAction func completionToggle(_ sender: Any) {
-    }
+    @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        itemsIndexView.dataSource = self
-        itemsIndexView.delegate = self
+//        tableView.dataSource = self
         
         ItemFunctions.readItems(completion:  {
-            self.itemsIndexView.reloadData()
+//            self.tableView.reloadData()
         })
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -31,26 +28,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Dispose of any resources that can be recreated.
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100.0
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        return Data.itemModels.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
         
-        if let todoTitleLabel = cell.viewWithTag(1) as? UILabel {
-            todoTitleLabel.text = Data.itemModels[indexPath.row].title
-        }
-        
-        if let todoCompletionToggle = cell.viewWithTag(2) as? UISwitch {
-            let shouldBeOn = indexPath.row % 2 == 0
-            todoCompletionToggle.setOn(shouldBeOn, animated: false)
-        }
-        
+        cell.textLabel?.text = Data.itemModels[indexPath.row].title
         
         return cell
     }

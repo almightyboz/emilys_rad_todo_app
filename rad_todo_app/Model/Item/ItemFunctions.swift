@@ -9,31 +9,29 @@
 import Foundation
 
 class ItemFunctions {
-    
     static func createItem(itemModel: ItemModel) {
         
     }
     
+    // see all items in the data store, and accept completion handler
     static func readItems(completion: @escaping () -> ()) {
-        if Data.itemModels.count == 0 {
-            Data.itemModels.append(ItemModel(title: "Water Plants"))
-            Data.itemModels.append(ItemModel(title: "Buy new curtains"))
-            Data.itemModels.append(ItemModel(title: "Fold laundry"))
-        }
-        
-        
+//        if Data.itemModels.count == 0 {
+//            Data.itemModels.append(ItemModel(title: "Water Plants"))
+//            Data.itemModels.append(ItemModel(title: "Buy new curtains"))
+//            Data.itemModels.append(ItemModel(title: "Fold laundry"))
+//        }
         //Run this background thread before all others
-//        DispatchQueue.global(qos: .userInteractive).async {
-//            if Data.itemModels.count == 0 {
-//                Data.itemModels.append(ItemModel(title: "Water Plants"))
-//                Data.itemModels.append(ItemModel(title: "Buy new curtains"))
-//                Data.itemModels.append(ItemModel(title: "Fold laundry"))
-//            }
-//        }
-//
-//        DispatchQueue.main.async {
-//            completion()
-//        }
+        DispatchQueue.global(qos: .userInteractive).async {
+            if Data.itemModels.count == 0 {
+                Data.itemModels.append(ItemModel(title: "Water Plants"))
+                Data.itemModels.append(ItemModel(title: "Buy new curtains"))
+                Data.itemModels.append(ItemModel(title: "Fold laundry"))
+            }
+        }
+
+        DispatchQueue.main.async {
+            completion()
+        }
     }
     
     static func updateItem(itemModel: ItemModel) {
